@@ -1,0 +1,44 @@
+seed: 42
+dataset:
+  root: data/synth_smoke
+  train_metadata: train.jsonl
+  val_metadata: val.jsonl
+  image_size: 64
+
+model:
+  in_channels: 3
+  base_channels: 32
+  channel_multipliers: [1, 2]
+  time_embed_dim: 128
+  cond_embed_dim: 96
+  timesteps: 64
+  beta_start: 0.0001
+  beta_end: 0.02
+  text_encoder_name: google/bert_uncased_L-2_H-128_A-2
+  text_max_length: 24
+  cond_drop_prob: 0.1
+
+training:
+  batch_size: 8
+  num_workers: 0
+  epochs: 2
+  learning_rate: 0.0002
+  lr_scheduler: cosine
+  weight_decay: 0.0001
+  grad_accum_steps: 1
+  checkpoint_every_steps: 20
+  validate_every_steps: 10
+  max_grad_norm: 1.0
+  mixed_precision: false
+  num_val_samples: 4
+  guidance_scale: 2.5
+  sample_prompts:
+    - a red circle on a blue background
+    - two green squares on a white background
+    - a small white circle above a black square
+    - three yellow triangles on a black background
+
+outputs:
+  checkpoints_dir: checkpoints
+  runs_dir: outputs/runs
+  samples_dir: outputs/samples

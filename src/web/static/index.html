@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tiny Diffusion Demo</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Portfolio Demo</p>
+          <h1>Tiny Diffusion Playground</h1>
+          <p class="lede">
+            Test the project through a simple frontend: choose a checkpoint, try a prompt,
+            and watch the tiny text-to-image model generate directly from noise.
+          </p>
+        </div>
+        <div class="hero-note">
+          <h2>What this UI is for</h2>
+          <p>
+            This demo is intentionally small and educational. The model is still noisy, but the
+            interface makes it easy to explore how checkpoint quality, prompt wording, and guidance
+            affect the output.
+          </p>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <form id="generator-form" class="control-panel">
+          <label class="field">
+            <span>Prompt</span>
+            <textarea
+              id="prompt"
+              name="prompt"
+              rows="4"
+              placeholder="a red circle on a blue background"
+              required
+            ></textarea>
+          </label>
+
+          <div class="grid-two">
+            <label class="field">
+              <span>Checkpoint</span>
+              <select id="checkpoint" name="checkpoint_path"></select>
+            </label>
+
+            <label class="field">
+              <span>Guidance Scale</span>
+              <input
+                id="guidance-scale"
+                name="guidance_scale"
+                type="number"
+                min="1"
+                max="10"
+                step="0.25"
+                placeholder="Use checkpoint default"
+              />
+            </label>
+          </div>
+
+          <div class="sample-panel">
+            <div>
+              <h3>Sample Prompts</h3>
+              <div id="sample-prompts" class="chips"></div>
+            </div>
+            <div class="run-info">
+              <h3>Run Info</h3>
+              <dl id="run-info-list"></dl>
+            </div>
+          </div>
+
+          <button id="generate-button" type="submit">Generate Image</button>
+          <p id="status" class="status">Loading checkpoints...</p>
+        </form>
+
+        <section class="output-panel">
+          <div class="output-frame">
+            <img id="result-image" alt="Generated image output" hidden />
+            <div id="empty-state" class="empty-state">
+              <p>Your generated image will appear here.</p>
+            </div>
+          </div>
+
+          <div class="meta-card">
+            <h3>Generation Details</h3>
+            <dl id="generation-meta"></dl>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>

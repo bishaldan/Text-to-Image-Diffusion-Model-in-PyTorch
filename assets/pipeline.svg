@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="260" viewBox="0 0 980 260" role="img" aria-labelledby="title desc">
+  <title id="title">Prompt to image generation loop</title>
+  <desc id="desc">Pipeline diagram showing prompt, text embedding, random noise, denoising loop, and generated image.</desc>
+  <rect width="980" height="260" fill="#faf8f2"/>
+  <rect x="35" y="80" width="150" height="90" rx="18" fill="#fff4db" stroke="#b17a00" stroke-width="3"/>
+  <text x="110" y="119" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#6d4700">Prompt</text>
+  <text x="110" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#6d4700">Text</text>
+  <rect x="230" y="80" width="170" height="90" rx="18" fill="#ecf2ff" stroke="#3057a6" stroke-width="3"/>
+  <text x="315" y="119" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#17325c">Frozen BERT</text>
+  <text x="315" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#17325c">Embedding</text>
+  <rect x="445" y="80" width="150" height="90" rx="18" fill="#f0ece2" stroke="#776649" stroke-width="3"/>
+  <text x="520" y="119" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#4e412e">Random</text>
+  <text x="520" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#4e412e">Noise</text>
+  <rect x="640" y="60" width="180" height="130" rx="18" fill="#fdecef" stroke="#b24d61" stroke-width="3"/>
+  <text x="730" y="103" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#6f2435">Repeated</text>
+  <text x="730" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#6f2435">Denoising</text>
+  <text x="730" y="161" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#6f2435">conditioned on text</text>
+  <rect x="860" y="80" width="90" height="90" rx="18" fill="#e7f7ea" stroke="#2f7d45" stroke-width="3"/>
+  <text x="905" y="118" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#1d5c31">Final</text>
+  <text x="905" y="147" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#1d5c31">Image</text>
+  <path d="M185 125 H215" stroke="#b17a00" stroke-width="4" fill="none"/>
+  <polygon points="215,125 203,118 203,132" fill="#b17a00"/>
+  <path d="M400 125 H430" stroke="#3057a6" stroke-width="4" fill="none"/>
+  <polygon points="430,125 418,118 418,132" fill="#3057a6"/>
+  <path d="M595 125 H625" stroke="#776649" stroke-width="4" fill="none"/>
+  <polygon points="625,125 613,118 613,132" fill="#776649"/>
+  <path d="M820 125 H845" stroke="#b24d61" stroke-width="4" fill="none"/>
+  <polygon points="845,125 833,118 833,132" fill="#b24d61"/>
+  <text x="490" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#3c3b37">Sampling starts from noise and repeatedly removes predicted noise until a prompt-aligned image appears.</text>
+</svg>

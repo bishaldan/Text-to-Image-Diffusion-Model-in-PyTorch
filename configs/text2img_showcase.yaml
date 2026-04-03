@@ -1,0 +1,46 @@
+seed: 42
+dataset:
+  root: data/synth_showcase
+  train_metadata: train.jsonl
+  val_metadata: val.jsonl
+  image_size: 64
+
+model:
+  in_channels: 3
+  base_channels: 40
+  channel_multipliers: [1, 2]
+  time_embed_dim: 160
+  cond_embed_dim: 112
+  timesteps: 96
+  beta_start: 0.0001
+  beta_end: 0.02
+  text_encoder_name: google/bert_uncased_L-2_H-128_A-2
+  text_max_length: 24
+  cond_drop_prob: 0.1
+
+training:
+  batch_size: 8
+  num_workers: 0
+  epochs: 4
+  learning_rate: 0.0002
+  lr_scheduler: cosine
+  weight_decay: 0.0001
+  grad_accum_steps: 1
+  checkpoint_every_steps: 50
+  validate_every_steps: 25
+  max_grad_norm: 1.0
+  mixed_precision: false
+  num_val_samples: 4
+  guidance_scale: 2.75
+  sample_prompts:
+    - a red circle on a blue background
+    - two green squares on a white background
+    - a small white circle above a black square
+    - three yellow triangles on a black background
+    - a large blue square left of a red circle
+
+outputs:
+  checkpoints_dir: checkpoints
+  runs_dir: outputs/runs
+  samples_dir: outputs/samples
+
