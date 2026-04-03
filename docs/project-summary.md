@@ -2,7 +2,7 @@
 
 ## SEO-Friendly Repository Title
 
-Tiny Educational Text-to-Image Diffusion Model in PyTorch
+Text-to-Image Diffusion Model
 
 ## Alternative SEO-Friendly Titles
 

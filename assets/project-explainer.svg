@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Animated explainer for the Text-to-Image Diffusion Model project</title>
+  <desc id="desc">Animated SVG showing the project flow from synthetic dataset and prompt text to prompt embeddings, noisy images, conditioned denoising, and generated samples.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7f5ef"/>
+      <stop offset="100%" stop-color="#f0efe8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .title { font: 700 34px Arial, sans-serif; fill: #1f2430; }
+      .subtitle { font: 400 18px Arial, sans-serif; fill: #4f5a6d; }
+      .card-title { font: 700 21px Arial, sans-serif; fill: #1f2430; }
+      .card-text { font: 400 16px Arial, sans-serif; fill: #445066; }
+      .label { font: 700 16px Arial, sans-serif; fill: #31405b; }
+      .small { font: 400 14px Arial, sans-serif; fill: #536079; }
+      .pill { font: 700 14px Arial, sans-serif; fill: #264067; }
+      .flow { stroke-width: 5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .pulse {
+        opacity: 0.2;
+        transform-origin: center;
+        animation: pulse 2.4s ease-in-out infinite;
+      }
+      .pulse.s2 { animation-delay: 0.4s; }
+      .pulse.s3 { animation-delay: 0.8s; }
+      .float-a {
+        animation: floatA 3.6s ease-in-out infinite;
+      }
+      .float-b {
+        animation: floatB 3.4s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.18; transform: scale(1); }
+        50% { opacity: 0.45; transform: scale(1.04); }
+      }
+      @keyframes floatA {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+      }
+      @keyframes floatB {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(6px); }
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="520" fill="url(#bg)"/>
+
+  <text x="60" y="64" class="title">Text-to-Image Diffusion Model</text>
+  <text x="60" y="94" class="subtitle">An educational end-to-end pipeline showing how prompt-conditioned diffusion learns to turn noise into images.</text>
+
+  <rect x="60" y="132" width="220" height="290" rx="24" fill="#edf3ff" stroke="#3d63a8" stroke-width="3" filter="url(#shadow)"/>
+  <text x="90" y="175" class="card-title">1. Synthetic Dataset</text>
+  <text x="90" y="206" class="card-text">Controlled captions and simple</text>
+  <text x="90" y="228" class="card-text">geometry make the learning</text>
+  <text x="90" y="250" class="card-text">signal easy to inspect.</text>
+  <rect x="92" y="280" width="156" height="32" rx="16" fill="#d8e6ff"/>
+  <text x="170" y="301" text-anchor="middle" class="pill">render image + caption</text>
+  <circle cx="118" cy="360" r="28" fill="#de5552"/>
+  <rect x="152" y="332" width="52" height="52" rx="10" fill="#3f8f56"/>
+  <polygon points="226,384 198,334 254,334" fill="#e0b02a"/>
+
+  <rect x="322" y="132" width="220" height="290" rx="24" fill="#fff4dc" stroke="#b9851d" stroke-width="3" filter="url(#shadow)"/>
+  <text x="352" y="175" class="card-title">2. Text Encoder</text>
+  <text x="352" y="206" class="card-text">A frozen BERT model converts</text>
+  <text x="352" y="228" class="card-text">prompts into dense embeddings</text>
+  <text x="352" y="250" class="card-text">used for conditioning.</text>
+  <rect x="352" y="286" width="160" height="34" rx="17" fill="#ffe6a9"/>
+  <text x="432" y="308" text-anchor="middle" class="pill">prompt embedding</text>
+  <rect x="360" y="350" width="144" height="16" rx="8" fill="#e3c56d" class="pulse"/>
+  <rect x="360" y="378" width="124" height="16" rx="8" fill="#d6af46" class="pulse s2"/>
+  <rect x="360" y="406" width="98" height="16" rx="8" fill="#bb9120" class="pulse s3"/>
+
+  <rect x="584" y="132" width="250" height="290" rx="24" fill="#fdecef" stroke="#b24d61" stroke-width="3" filter="url(#shadow)"/>
+  <text x="614" y="175" class="card-title">3. Conditioned U-Net</text>
+  <text x="614" y="206" class="card-text">Noisy images, timestep embeddings,</text>
+  <text x="614" y="228" class="card-text">and prompt vectors meet inside a</text>
+  <text x="614" y="250" class="card-text">compact DDPM-style denoiser.</text>
+  <rect x="624" y="286" width="170" height="34" rx="17" fill="#ffd8df"/>
+  <text x="709" y="308" text-anchor="middle" class="pill">predict the noise</text>
+  <g class="float-a">
+    <rect x="624" y="346" width="52" height="52" rx="14" fill="#f2b7c3"/>
+    <rect x="694" y="328" width="52" height="88" rx="14" fill="#e78ea0"/>
+    <rect x="764" y="346" width="34" height="52" rx="14" fill="#d76784"/>
+  </g>
+  <text x="709" y="440" text-anchor="middle" class="small">skip connections + residual blocks + conditioning projections</text>
+
+  <rect x="876" y="132" width="264" height="290" rx="24" fill="#eaf7ec" stroke="#3e8656" stroke-width="3" filter="url(#shadow)"/>
+  <text x="906" y="175" class="card-title">4. Reverse Diffusion</text>
+  <text x="906" y="206" class="card-text">Sampling starts from noise and</text>
+  <text x="906" y="228" class="card-text">iteratively removes predicted noise</text>
+  <text x="906" y="250" class="card-text">until prompt-aligned structure appears.</text>
+  <rect x="912" y="286" width="192" height="34" rx="17" fill="#d6f1df"/>
+  <text x="1008" y="308" text-anchor="middle" class="pill">guided denoising loop</text>
+  <g class="float-b">
+    <rect x="924" y="344" width="64" height="64" rx="18" fill="#dfead7"/>
+    <circle cx="956" cy="376" r="18" fill="#afc9a0"/>
+    <rect x="1000" y="344" width="96" height="64" rx="18" fill="#f8f4ea"/>
+    <circle cx="1028" cy="376" r="16" fill="#d33e48"/>
+    <rect x="1048" y="360" width="24" height="24" rx="6" fill="#2d8c47"/>
+  </g>
+  <text x="1008" y="440" text-anchor="middle" class="small">noise -&gt; structure -&gt; final image</text>
+
+  <path d="M280 276 C302 276 304 276 322 276" class="flow" stroke="#3d63a8"/>
+  <path d="M542 276 C562 276 564 276 584 276" class="flow" stroke="#b9851d"/>
+  <path d="M834 276 C854 276 856 276 876 276" class="flow" stroke="#b24d61"/>
+
+  <circle r="8" fill="#3d63a8">
+    <animateMotion dur="3s" repeatCount="indefinite" path="M280 276 C302 276 304 276 322 276"/>
+  </circle>
+  <circle r="8" fill="#b9851d">
+    <animateMotion dur="3s" begin="0.6s" repeatCount="indefinite" path="M542 276 C562 276 564 276 584 276"/>
+  </circle>
+  <circle r="8" fill="#b24d61">
+    <animateMotion dur="3s" begin="1.2s" repeatCount="indefinite" path="M834 276 C854 276 856 276 876 276"/>
+  </circle>
+
+  <text x="60" y="470" class="label">Learning loop</text>
+  <text x="172" y="470" class="small">dataset + captions -&gt; embedding -&gt; noisy image -&gt; conditioned denoising -&gt; generated sample</text>
+  <text x="60" y="495" class="small">This repository keeps every stage intentionally small so students and engineers can inspect the mechanics of AI image generation without a giant production stack.</text>
+</svg>

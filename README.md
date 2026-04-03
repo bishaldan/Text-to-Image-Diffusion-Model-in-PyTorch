@@ -1,4 +1,4 @@
-# Tiny Educational Text-to-Image Diffusion Model
+# Text-to-Image Diffusion Model
 
 A compact text-to-image diffusion project built to answer a practical question:
 
@@ -17,6 +17,14 @@ It includes:
 - a minimal web app for trying checkpoints in the browser,
 - training and sampling CLIs,
 - tests, Docker support, and walkthrough documentation.
+
+## Animated Project Explainer
+
+The repo now includes an animated SVG overview of the full system:
+
+![Animated project explainer](assets/project-explainer.svg)
+
+If GitHub renders the SVG statically in the README, open [assets/project-explainer.svg](assets/project-explainer.svg) directly to view the animation in a browser.
 
 `From scratch` in this repo means we implement the dataset generator, conditioning path, timestep embeddings, conditioned U-Net, diffusion scheduler, training loop, checkpointing, and sampling pipeline ourselves. The only pretrained component is the frozen text encoder used to convert prompts into embeddings.
 
